@@ -20,7 +20,7 @@ jobs:
       run: docker build --target dev -t app:dev -f app/Dockerfile app
 
     - name: Run tests inside Docker
-      run: docker run --rm app:dev npm test
+      run: docker run --rm app:dev npm test:prod
 
     - name: Build final Docker image
       run: docker build -t app:production -f app/Dockerfile app

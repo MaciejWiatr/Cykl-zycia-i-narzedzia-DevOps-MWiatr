@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "tsx watch src/index.tsx",
     "test": "vitest",
+    "test:prod": "vitest run",
     "build": "tsc"
   },
   "dependencies": {
