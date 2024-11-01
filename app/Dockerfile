@@ -1,25 +1,24 @@
 FROM node:20-alpine AS base
 
+# Development stage
 FROM base AS dev
 WORKDIR /app
 
-COPY package*json tsconfig.json src ./
-
+COPY ./ ./
 RUN npm ci
 
-# This stage is used for development and testing
-
+# Build stage
 FROM base AS build
 RUN apk add --no-cache gcompat
 WORKDIR /app
 
 COPY package*json tsconfig.json src ./
-
 RUN npm ci
 
 RUN npm run build && \
     npm prune --production
 
+# Runner stage
 FROM base AS runner
 WORKDIR /app
 
