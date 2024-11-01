@@ -6,6 +6,7 @@ export const app = new Hono();
 app.get("/", (c) => {
   return c.html(
     <Layout>
+      <h1>Nowy tytuł</h1>
       <p>
         To jest przykładowa aplikacja na przedmiot "Cykl życia i narzędzia
         DevOps"
