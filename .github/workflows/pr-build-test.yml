@@ -1,15 +1,11 @@
-name: Build and Test on PR
+name: PR Build and Test
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
-    branches:
-      - '**'
+    types: [opened, synchronize, reopened]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
