@@ -16,8 +16,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Build Docker image
-      run: docker build -t app:test -f app/Dockerfile app
+    - name: Build Docker image up to build stage
+      run: docker build --target build -t app:build -f app/Dockerfile app
 
     - name: Run tests inside Docker
-      run: docker run --rm app:test npm test
+      run: docker run --rm app:build npm test
+
+    - name: Build final Docker image
+      run: docker build -t app:production -f app/Dockerfile app
