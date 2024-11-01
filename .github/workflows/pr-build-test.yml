@@ -1,6 +1,9 @@
 name: Build and Test on PR
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - '**'
@@ -14,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build Docker image
-      run: docker build -t app:test -f app/Dockerfile .
+      run: docker build -t app:test -f app/Dockerfile app
 
     - name: Run tests inside Docker
       run: docker run --rm app:test npm test
