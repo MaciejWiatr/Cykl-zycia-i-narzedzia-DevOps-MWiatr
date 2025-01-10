@@ -39,5 +39,5 @@ jobs:
         file: ./app/Dockerfile
         push: true
         tags: |
-          ghcr.io/${{ github.repository_owner }}/cykl_zycia_i_narzedzia_devops:latest
-          ghcr.io/${{ github.repository_owner }}/cykl_zycia_i_narzedzia_devops:${{ github.sha }} 
+          ghcr.io/${{ github.repository_owner | lower }}/cykl-zycia-i-narzedzia-devops:latest
+          ghcr.io/${{ github.repository_owner | lower }}/cykl-zycia-i-narzedzia-devops:${{ github.sha }} 
