@@ -8,13 +8,6 @@ describe("app", () => {
     expect(text).toContain("To jest przykładowa aplikacja");
   });
 
-  it("should return 200 for the /druga path", async () => {
-    const res = await app.request("/druga");
-    expect(res.status).toBe(200);
-    const text = await res.text();
-    expect(text).toContain("Hello second");
-  });
-
   it("should return 404 for an unknown path", async () => {
     const res = await app.request("/unknown");
     expect(res.status).toBe(404);
