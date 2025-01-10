@@ -10,4 +10,5 @@ serve({
   port,
 });
 
+console.log("Wow this is so creative!");
 console.log(`Server is running on http://localhost:${port}`);
