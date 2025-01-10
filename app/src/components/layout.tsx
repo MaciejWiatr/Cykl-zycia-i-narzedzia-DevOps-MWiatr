@@ -24,6 +24,9 @@ export const Layout: FC = ({ children }) => {
               <li>
                 <a href="/druga">Druga strona</a>
               </li>
+              <li>
+                <a href="/trzecia">Trzecia strona</a>
+              </li>
             </ul>
           </nav>
 
