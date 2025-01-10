@@ -10,6 +10,7 @@ jobs:
     permissions:
       contents: read
       security-events: write
+      pull-requests: write
 
     steps:
     - name: Checkout code
@@ -31,6 +32,8 @@ jobs:
         format: 'sarif'
         output: 'trivy-results.sarif'
         severity: 'CRITICAL,HIGH'
+        github-pat: ${{ secrets.GITHUB_TOKEN }}
+        exit-code: '1'
 
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v3
