@@ -16,7 +16,3 @@ app.get("/", (c) => {
     </Layout>
   );
 });
-
-app.get("/druga", (c) => {
-  return c.html(<Layout>Hello second</Layout>);
-});
