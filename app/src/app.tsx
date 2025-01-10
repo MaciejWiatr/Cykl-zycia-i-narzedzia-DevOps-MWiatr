@@ -8,7 +8,7 @@ app.get("/", (c) => {
     <Layout>
       <p>
         To jest przykładowa aplikacja na przedmiot "Cykl życia i narzędzia
-        DevOps"
+        DevOps". Test
       </p>
       <hr />
       <p>Przykładowe dane:</p>
