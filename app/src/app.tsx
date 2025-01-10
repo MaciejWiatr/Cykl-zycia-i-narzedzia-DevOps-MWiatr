@@ -12,7 +12,7 @@ app.get("/", (c) => {
       </p>
       <hr />
       <p>Przykładowe dane:</p>
-      <img src="/static/data.webp" />
+      <img src="http://localhost:3000/static/data.webp" />
     </Layout>
   );
 });

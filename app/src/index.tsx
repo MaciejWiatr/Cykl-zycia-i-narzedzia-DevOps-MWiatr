@@ -3,7 +3,7 @@ import { app } from "./app.js";
 import { serveStatic } from "@hono/node-server/serve-static";
 
 const port = 3000;
-app.use("/static/*", serveStatic({ root: "./src" }));
+app.use("/static/*", serveStatic({ root: "./" }));
 
 serve({
   fetch: app.fetch,

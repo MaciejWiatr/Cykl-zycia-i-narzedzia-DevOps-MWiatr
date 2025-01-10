@@ -12,7 +12,9 @@ FROM base AS build
 RUN apk add --no-cache gcompat
 WORKDIR /app
 
-COPY package*json tsconfig.json src ./
+COPY package*.json tsconfig.json ./
+COPY src/ ./src/
+COPY static/ ./static/
 RUN npm ci
 
 RUN npm run build && \
@@ -28,6 +30,7 @@ RUN adduser --system --uid 1001 hono
 COPY --from=build --chown=hono:nodejs /app/node_modules /app/node_modules
 COPY --from=build --chown=hono:nodejs /app/dist /app/dist
 COPY --from=build --chown=hono:nodejs /app/package.json /app/package.json
+COPY --from=build --chown=hono:nodejs /app/static /app/static
 
 USER hono
 EXPOSE 3000
