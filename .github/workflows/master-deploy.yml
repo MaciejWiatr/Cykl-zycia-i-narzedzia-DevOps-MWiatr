@@ -54,11 +54,11 @@ jobs:
         severity: 'CRITICAL,HIGH'
 
     - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v2
+      uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: 'trivy-results.sarif'
 
-    - name: Push Docker image if scan passes
+    - name: Push Docker image to GitHub registry
       run: |
         docker push ghcr.io/maciejwiatr/cykl-zycia-i-narzedzia-devops:latest
         docker push ghcr.io/maciejwiatr/cykl-zycia-i-narzedzia-devops:${{ github.sha }} 
